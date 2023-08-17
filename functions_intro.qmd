@@ -10,7 +10,6 @@ editor: visual
 library(tidyverse)
 ```
 
-
 ## Functions
 
 Make a function that doubles a values
@@ -127,7 +126,6 @@ convertKelvin("English", 50)
 convertKelvin("Celcius", 25)
 ```
 
-
 ## More functions
 
 Create a subset within a function and return something based on that subset.
@@ -137,7 +135,7 @@ dog_choice <- data.frame(dog_name = c("Khora", "Teddy", "Waffle", "Banjo", "Tall
                          food = c("everything", "salmon", "pancakes", "chicken", "enchiladas"))
 ```
 
-Here's one way to do this 
+Here's one way to do this
 
 ```{r}
 dog_menu <- function(enter_dog_name) {
@@ -166,6 +164,30 @@ df_means <- function(df) {
 ```{r}
 df_means(mtcars)
 df_means(faithful)
+```
+
+## Function for wind power
+
+-   Create a function to calculate Betz limit
+
+0.3 * air density (kg/m^3^) * rotor radius (m) * wind velocity^3^ (m/s) = power (watts)
+
+```{r}
+calc_betz_windpower <- function(air_density, rotor_radius, wind_velocity) {
+  if (wind_velocity > 130) {
+    warning("Whoa that's a pretty high wind speed. Are you sure?")
+  }
+  if (rotor_radius < 0) {
+    stop("Rotor radius must be a potitive value (meters)")
+  }
+  
+  paste(0.3 * air_density * pi * (rotor_radius^2) * (wind_velocity^3), "Watts")
+}
+```
+
+```{r}
+calc_betz_windpower(1.2, 30, 150)
+#calc_betz_windpower(1.2, -1, 40) gives our error message
 ```
 
 
