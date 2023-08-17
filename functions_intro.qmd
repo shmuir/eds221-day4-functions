@@ -6,6 +6,11 @@ format: html
 editor: visual
 ---
 
+```{r}
+library(tidyverse)
+```
+
+
 ## Functions
 
 Make a function that doubles a values
@@ -120,6 +125,47 @@ convertKelvin <- function(temp_system, temp) {
 convertKelvin(temp_system = "Metric", temp = 50)
 convertKelvin("English", 50)
 convertKelvin("Celcius", 25)
+```
+
+
+## More functions
+
+Create a subset within a function and return something based on that subset.
+
+```{r}
+dog_choice <- data.frame(dog_name = c("Khora", "Teddy", "Waffle", "Banjo", "Tallie"), 
+                         food = c("everything", "salmon", "pancakes", "chicken", "enchiladas"))
+```
+
+Here's one way to do this 
+
+```{r}
+dog_menu <- function(enter_dog_name) {
+  selected_dog <- dplyr::filter(dog_choice, dog_name == enter_dog_name)
+ print(paste("My name is", selected_dog$dog_name, "and my favorite food is", selected_dog$food))
+}
+
+dog_menu(enter_dog_name = "Teddy")
+dog_menu("Waffle")
+```
+
+## Function with a for loop
+
+If variable is numeric, return the means
+
+```{r}
+df_means <- function(df) {
+  for (i in seq_along(df)) {
+    col_mean <- round(mean(df[[i]], na.rm = TRUE), 2)
+    column_name <- colnames(df[i])
+    print(paste("The mean value of", column_name, "is", col_mean))
+  }
+}
+```
+
+```{r}
+df_means(mtcars)
+df_means(faithful)
 ```
 
 
