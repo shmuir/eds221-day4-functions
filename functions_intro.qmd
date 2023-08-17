@@ -82,4 +82,44 @@ print_age_home <- function(age, hometown) {
 print_age_home(23, "Goleta, CA")
 ```
 
-## Functions with Conditions
+## Functions with Conditionals
+
+```{r}
+calc_animal_age <- function(animal, age_human_yrs) {
+  if (animal == "dog") {
+    age_human_yrs * 7
+  } else if (animal == "goat") {
+    age_human_yrs * 4.7
+  } else {
+    print("Please enter either dog or goat and its age in human years.")
+  }
+}
+```
+
+```{r}
+calc_animal_age("dog", 7)
+calc_animal_age("goat", 3)
+calc_animal_age("cat", 12)
+```
+
+Write a function that will return that, given temp in Kelvin, if a user selects "Metric" to the scale, return ºC, or if they select "English" then return degrees in ºF
+
+```{r}
+convertKelvin <- function(temp_system, temp) {
+  if (temp_system == "Metric") {
+    print(temp - 273.15)
+  } else if (temp_system == "English") {
+    ((temp - 273.15) * (9/5)) + 32
+  } else {
+    print("Enter temperature value, specifying either Metric or English")
+  }
+}
+```
+
+```{r}
+convertKelvin(temp_system = "Metric", temp = 50)
+convertKelvin("English", 50)
+convertKelvin("Celcius", 25)
+```
+
+
