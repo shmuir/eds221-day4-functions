@@ -1,0 +1,85 @@
+---
+title: "Functions"
+date: "17 August 2023"
+author: "Sam Muir"
+format: html
+editor: visual
+---
+
+## Functions
+
+Make a function that doubles a values
+
+```{r}
+double_value <- function(my_dollars) {
+  print(my_dollars * 2)
+}
+```
+
+-   Print: show me this
+
+```{r}
+my_dollars = 34
+
+double_value(my_dollars)
+double_value(my_dollars = 10.34)
+double_value(10.67)
+```
+
+```{r}
+double_value_2 <- function(my_dollars) {
+  my_dollars * 2
+}
+```
+
+-   Return: store this so I can use it later
+
+```{r}
+double_value_2(34)
+```
+
+With a vector
+
+```{r}
+monthly_income <- c(10.76, 45.60, 30.7)
+
+double_value(monthly_income)
+```
+
+Create a function that returns a restaurant name given an animal and favorite food
+
+```{r}
+name_restaurant <- function(animal, food) {
+  print(paste0(animal, food))
+}
+```
+
+```{r}
+name_restaurant(animal = "bird", food = "sushi")
+```
+
+Given temp. in ºF write a function that converts it to ºC
+
+```{r}
+convert_to_celcius <- function(temp_f) {
+  print(paste((temp_f - 32) * (5/9), "ºC"))
+}
+```
+
+```{r}
+convert_to_celcius(50)
+```
+
+Create a function given age and hometown, return "I am \_\_ years old, and I'm from \_\_\_"
+
+```{r}
+print_age_home <- function(age, hometown) {
+  print(paste("I am", age, "years old, and I'm from", hometown))
+}
+```
+
+```{r}
+print_age_home(23, "Goleta, CA")
+```
+
+## Functions with Conditions
